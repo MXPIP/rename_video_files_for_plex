@@ -18,6 +18,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: ["3.9", "3.12", "3.13"]
+        exclude:
+          # На ubuntu-latest (24.04) нет готовых сборок Python 3.9,
+          # поэтому 3.9 проверяем только на Windows.
+          - os: ubuntu-latest
+            python-version: "3.9"
 
     steps:
       - name: Checkout
