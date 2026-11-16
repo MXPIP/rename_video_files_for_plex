@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
 [![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)]()
+[![tests](https://github.com/MXPIP/rename_video_files_for_plex/actions/workflows/tests.yml/badge.svg)](https://github.com/MXPIP/rename_video_files_for_plex/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Скрипт `rename_for_plex.py` (и готовый `rename_for_plex.exe` для Windows) приводит имена
