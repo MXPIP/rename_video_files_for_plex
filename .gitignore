@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# Виртуальные окружения
+.venv/
+.venv-build/
+venv/
+env/
+
+# Сборка .exe (PyInstaller)
+vendor/
+*.spec
+*.exe
+
+# Служебные файлы проекта
+.tmp-tests/
+.tmp-pip/
+.tmp-exe-run/
+_backup_*/
+legacy/
+*.bak
+*.log
+
+# Редакторы и ОС
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
