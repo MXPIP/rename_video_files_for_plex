@@ -1,4 +1,4 @@
-# 🎬 rename-files-for-plex
+# 🎬 rename_video_files_for_plex
 
 <img src="assets/icon-256.png" width="88" align="right" alt="Иконка Rename for Plex">
 
@@ -24,9 +24,9 @@ Roadhouse.Blues.S01E01.Pilot.1080p.WEB-DL.x264-GROUP.mkv
 Roadhouse Blues - s01e01 - Pilot.mkv
 ```
 
-> **О названиях.** Репозиторий называется `rename-files-for-plex` (через дефисы — так принято на GitHub),
-> а сам скрипт — `rename_for_plex.py`: в Python имя модуля не может содержать дефис, иначе его нельзя
-> импортировать (это делают тесты). .exe собирается с тем же именем: `rename_for_plex.exe`.
+> **О названиях.** Репозиторий — `rename_video_files_for_plex`, скрипт — `rename_for_plex.py`,
+> собранный файл — `rename_for_plex.exe`. Имена разные: скрипт назван по действию
+> («переименовать для Plex»), репозиторий — по задаче.
 
 ---
 
@@ -82,8 +82,8 @@ Plex (и большинство медиасерверов) не умеют на
 ## Установка
 
 ```bash
-git clone https://github.com/<ваш-логин>/rename-files-for-plex.git
-cd rename-files-for-plex
+git clone https://github.com/<ваш-логин>/rename_video_files_for_plex.git
+cd rename_video_files_for_plex
 ```
 
 Без git: скачайте репозиторий как ZIP (**Code → Download ZIP**) и распакуйте.
@@ -281,6 +281,11 @@ git tag v2.1.0
 git push origin v2.1.0
 ```
 
+Релиз, созданный кнопкой **Draft a new release** в веб-интерфейсе, сборку не запускает: тег в этом
+случае создаётся на стороне GitHub и события `push` не происходит. Поэтому либо создавайте релиз
+пушем тега из git, либо запустите workflow вручную: **Actions → build-exe → Run workflow**, указав
+тег в поле `tag` — готовый `.exe` прикрепится к существующему релизу.
+
 ## Что нового в версии 2.1.0
 
 - 🖥️ **Сборка в один .exe** — `build_exe.py`, `build_exe.bat`, `requirements-dev.txt`; exe не требует Python.
@@ -325,7 +330,7 @@ git push origin v2.1.0
 ## Структура проекта
 
 ```
-rename-files-for-plex/
+rename_video_files_for_plex/
 ├── rename_for_plex.py        # скрипт
 ├── build_exe.py              # сборка одного .exe (PyInstaller)
 ├── build_exe.bat             # сборка двойным кликом в Windows

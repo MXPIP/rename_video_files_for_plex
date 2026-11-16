@@ -4,6 +4,11 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тег релиза, к которому прикрепить .exe (например, v2.1.0)"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -15,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,9 +45,16 @@ jobs:
           path: dist/rename_for_plex.exe
           if-no-files-found: error
 
-      - name: Attach exe to GitHub Release
+      - name: Attach exe to release (tag push)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: dist/rename_for_plex.exe
           generate_release_notes: true
+
+      - name: Attach exe to release (manual run)
+        if: github.event_name == 'workflow_dispatch' && inputs.tag != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          files: dist/rename_for_plex.exe
